@@ -2,8 +2,7 @@ import java.util.*;
 import java.io.*;
 public class MakeStars{
     public static void main(String[] args) throws FileNotFoundException {
-        File file = new File(args[0]);
-        Scanner input = new Scanner(file);
+        Scanner input = new Scanner(System.in);
         while (input.hasNextLine()){
             String line = input.nextLine();
             String lineStarred = ""; 
