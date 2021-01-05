@@ -17,11 +17,11 @@ public class PigLatin {
         String lowS = s.toLowerCase();
         char first = lowS.charAt(0);
         if(first == 'a'|| first == 'e'|| first == 'i'|| first == 'o'||first == 'u'){
-            newS = s + "hay";
+            newS = lowS + "hay";
         } else {
             newS = lowS.substring(1, lowS.length()) + lowS.charAt(0) + "ay";
         }
-        return newS;
+        return newS.toLowerCase();
     }
     public static String pigLatin(String s){
         String newS = "";
@@ -37,7 +37,7 @@ public class PigLatin {
         } else {
             newS = pigLatinSimple(s);
         }
-        return newS;
+        return newS.toLowerCase();
     }
 
     public static String pigLatinBest(String s){
