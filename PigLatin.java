@@ -5,12 +5,26 @@ public class PigLatin {
         System.out.println(pigLatinSimple("aaron"));
         System.out.println(pigLatinSimple(".@#!"));
         */
+        /*
         System.out.println(pigLatin("the"));
         System.out.println(pigLatin("grade"));
-        System.err.println(pigLatin("wrote"));
-        System.err.println(pigLatin("emu"));
-        System.err.println(pigLatin("z"));
-        System.err.println(pigLatin("a"));
+        System.out.println(pigLatin("wrote"));
+        System.out.println(pigLatin("emu"));
+        System.out.println(pigLatin("z"));
+        System.out.println(pigLatin("a"));
+        */
+        //
+        System.out.println(pigLatinBest("*emu"));
+        System.out.println(pigLatinBest("4chan"));
+        System.out.println(pigLatinBest("fish!"));
+        System.out.println(pigLatinBest("fish"));
+        System.out.println(pigLatinBest("the."));
+        System.out.println(pigLatinBest("cat!"));
+        System.out.println(pigLatinBest("amazing?"));
+        System.out.println(pigLatinBest("apple%"));
+
+
+
 
 
 
@@ -42,5 +56,14 @@ public class PigLatin {
         return newS.toLowerCase();
     }
 
-
+    public static String pigLatinBest(String s){
+        String newS = "";
+        char last = s.charAt(s.length()-1);
+        if(!(Character.isLetter(s.charAt(0)))) newS = s;
+         else if (!Character.isLetter(last) && !Character.isDigit(last)){
+            String temp = s.substring(0, s.length()-1);
+            newS = pigLatin(temp) + last;
+        }else newS = pigLatin(s); 
+        return newS.toLowerCase();
+    }
 }
