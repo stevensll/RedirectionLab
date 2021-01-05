@@ -1,7 +1,6 @@
 import java.util.*;
-import java.io.*;
 public class MakeStars{
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args){
         Scanner input = new Scanner(System.in);
         while (input.hasNextLine()){
             String line = input.nextLine();

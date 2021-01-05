@@ -1,59 +1,43 @@
+import java.util.*;
 public class PigLatin {
     public static void main(String[] args) {
-        /*
-        System.out.println(pigLatinSimple("DaVId"));
-        System.out.println(pigLatinSimple("aaron"));
-        System.out.println(pigLatinSimple(".@#!"));
-        */
-        /*
-        System.out.println(pigLatin("the"));
-        System.out.println(pigLatin("grade"));
-        System.out.println(pigLatin("wrote"));
-        System.out.println(pigLatin("emu"));
-        System.out.println(pigLatin("z"));
-        System.out.println(pigLatin("a"));
-        */
-        //
-        System.out.println(pigLatinBest("*emu"));
-        System.out.println(pigLatinBest("4chan"));
-        System.out.println(pigLatinBest("fish!"));
-        System.out.println(pigLatinBest("fish"));
-        System.out.println(pigLatinBest("the."));
-        System.out.println(pigLatinBest("cat!"));
-        System.out.println(pigLatinBest("amazing?"));
-        System.out.println(pigLatinBest("apple%"));
-
-
-
-
-
-
+        Scanner in = new Scanner(System.in);
+        while (in.hasNextLine()){
+            Scanner line  = new Scanner(in.nextLine());
+            while (line.hasNext()){
+                System.out.print(pigLatinBest(line.next()));
+                if (line.hasNext()) System.out.print(" ");
+            }
+            System.out.println();
+        }
+        in.close();
     }
     public static String pigLatinSimple(String s){
         String newS = "";
-        char first = s.charAt(0);
+        String lowS = s.toLowerCase();
+        char first = lowS.charAt(0);
         if(first == 'a'|| first == 'e'|| first == 'i'|| first == 'o'||first == 'u'){
             newS = s + "hay";
         } else {
-            newS = s.substring(1, s.length()) + s.charAt(0) + "ay";
+            newS = lowS.substring(1, lowS.length()) + lowS.charAt(0) + "ay";
         }
-        return newS.toLowerCase();
+        return newS;
     }
     public static String pigLatin(String s){
         String newS = "";
         String Digraphs [] = new String[]{"bl", "br", "ch", "ck", "cl", "cr", "dr", "fl", "fr", "gh", "gl", "gr", "ng", "ph", "pl", "pr", "qu", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th", "tr", "tw", "wh", "wr"};
         if(s.length() > 1){
-            String firstTwo = s.substring(0,2);
+            String firstTwo = s.substring(0,2).toLowerCase();
             for (String digraph : Digraphs){
                 if(firstTwo.equals(digraph)){
-                    newS = s.substring(2,s.length()) + firstTwo + "ay";
+                    newS = s.substring(2,s.length()).toLowerCase() + firstTwo + "ay";
                 }
             }
             if (newS.equals("")) newS = pigLatinSimple(s);
         } else {
             newS = pigLatinSimple(s);
         }
-        return newS.toLowerCase();
+        return newS;
     }
 
     public static String pigLatinBest(String s){
